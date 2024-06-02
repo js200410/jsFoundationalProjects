@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .buttons{
+            display:flex;
+            justify-content: center;
+
+        
+        }
+        .calc-body{
+            background:#118ed6;
+            width:40vw;
+            height: 70vh;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            padding:2vh;
+            border-radius:2vh;
+        }
+        #display{
+            background:#cbf0d3;
+            height: 15vh;
+            width: 40vw;
+            border-radius:2vh;
+            color:black;
+            font-size:3vw;
+            font-weight:700;
+            margin-bottom:2vh;
+            padding-top:10px
+        }
+        .buttons{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap:0.5vh;
+            padding:2vh
+            
+
+        }
+        button{
+            background:rgb(7, 99, 99) ;
+            height: 10vh;
+            width:9vw;
+            border-radius:10px;
+            font-size:3vw;
+            font-weight:800;
+            color:#fff;
+            text-wrap: wrap;
+        }
+        button:hover {
+           scale: 10px;
+          
+
+        }
+    </style>
+</head>
+<body>
+    <div class="calc-body">
+        <div id="display">
+
+        </div>
+        <div class="buttons">
+            <button onclick="display('/')">/</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('-')">-</button>
+            <button  onclick="calculate()">=</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="allClear()">AC</button>
+            <button onclick="display(0)">0</button>
+            <button onclick="display(1)">1</button>
+            <button onclick="display(2)">2</button>
+            <button onclick="display(3)">3</button>
+            <button onclick="display(4)">4</button>
+            <button onclick="display(6)">6</button>
+            <button onclick="display(7)">7</button>
+            <button onclick="display(8)">8</button>
+            <button onclick="display(9)">9</button>
+            <button onclick="backSpace()">bs</button>
+        </div>
+    </div>
+</body>
+<script>
+   const dis=  document.getElementById("display")
+    function display(e){
+       dis.innerHTML+=e
+    }
+    function calculate() {
+        result = eval(dis.innerHTML)
+        dis.innerHTML = result
+    }
+    function allClear(){
+        dis.innerHTML = ""
+    }
+    function backSpace(){
+        dis.innerHTML=  dis.innerHTML.slice(0,-1)
+      
+    }
+</script>
+</html>

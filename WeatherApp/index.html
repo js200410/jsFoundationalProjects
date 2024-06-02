@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body class=" bg-no-repeat bg-cover h-[100vh] bg-center justify-center items-center flex bg-[url('https://images.pexels.com/photos/1102915/pexels-photo-1102915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]">
+    <div class="w-[40vw] bg-[url('https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] h-[90vh] p-10 border-10 rounded-[5vh] absolute bg-no-repeat bg-cover bg-center opacity-[0.6]"></div>
+    <div class=" weather-layout flex justify-center items-center flex-col w-[40vw] p-10 border-10 rounded-[5vh] z-10">
+      <div class="displayCity flex justify-center flex-col items-center">
+        <img src="https://www.freepngimg.com/thumb/weather/86940-forecasting-weather-sky-atmosphere-rain-png-download-free.png" alt=""
+        class="h-[20vh]">
+        <h1 id="cityName" class="text-white text-[3vh] font-extrabold uppercase">
+         city: Noida
+        </h1>
+      </div>
+
+      <div class="displayWeather flex flex-col justify-center items-center ">
+      <div class=" search bg-gradient-to-r from-purple-500 to-pink-500 w-[15vw] h-[5vh] border-1 rounded-md flex justify-space-between p-4">
+        <input type="text" id="cityInput" placeholder="enter city name here"  class="text-[2vh] text-center font-semibold inputCity outline-none bg-blue-100 border-1 w-[100%] h-[100%]  rounded-md">
+        <ion-icon name="search-outline" class="w-[5vw] h-[4vh] cursor-pointer" onclick="fetchWeather()"></ion-icon>
+      </div>
+      <button id="searchBtn" class="bg-cyan-500 text-white w-[10vw] p-5 font-extrabold text-[2vh] m-10 border-1 hover:scale-[1] rounded-md ">
+        get weather 
+      </button>
+      <div class="weather-data grid grid-cols-2 gap-[6vh]">
+        <div id="temp" class="flex flex-col justify-center items-center text-white text-[3vh] gap-[2vh]  capitalize">
+          <img src="https://cdn-icons-png.flaticon.com/512/1035/1035618.png" alt=""
+          class="h-[10vh]">
+          <h1 id="temp-data">
+           temperature: 56°C
+          </h1>
+        </div>
+        <div id="humidity bg-white opacity" class="flex flex-col justify-center items-center text-white text-[3vh] gap-[2vh]  capitalize">
+          <img src="https://cdn-icons-png.flaticon.com/512/578/578135.png" alt=""
+          class="h-[5vh]">
+          <h1 id="humidity-data">
+           humidity: 50%
+          </h1>
+        </div>
+        <div id="feels_like" class="flex flex-col justify-center items-center text-white text-[3vh] gap-[2vh]  capitalize">
+          <img src="https://th.bing.com/th/id/R.d2818659c83e5d962be65b792f2d3986?rik=dHCLnEGLAKwXQw&pid=ImgRaw&r=0" alt=""
+          class="h-[10vh]">
+          <h1 id="feels_like-data">
+            feels like : 60%
+          </h1>
+        </div>
+        <div id="wind-speed" class="flex flex-col justify-center items-center text-white text-[3vh] gap-[2vh] capitalize">
+          <img src="https://www.pngall.com/wp-content/uploads/5/Wind-Wave-PNG-Image.png" alt=""
+          class="h-[10vh]">
+          <h1 id="wind-speed-data">
+           wind-speed: 66 km/hr
+          </h1>
+        </div>
+      </div>
+     </div>
+    </div>
+  </body>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="index.js"></script>
+</html>
