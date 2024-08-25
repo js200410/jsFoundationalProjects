@@ -22,7 +22,6 @@ async function fetchWeather (){
 			displayWeatherData(data)
 		}catch(error){
 			console.log("error occured",error)
-			displayErrorMessage("error fetching data please try again")
 		}
 	}
 	else{

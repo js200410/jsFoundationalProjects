@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="UTF-8"/>
+    <link href="styles.css" rel="stylesheet"/>
+    <title>Palindrom Checker</title>
+  </head>
+  <body>
+<div class="container">    
+  <fieldset>
+         <label>Check Palindrom :
+             <input type="text" id="text-input"/>    
+         </label>
+         <button id="check-btn">Check</button>    
+         <div id="result"></div>
+    </fieldset>
+    </div>
+
+  </body>
+  <script>
+    const checkBtn = document.getElementById("check-btn") 
+    const result = document.getElementById("result")
+    const input = document.getElementById("text-input")
+  const checkPalindrom = () => {
+   const userInput = document.getElementById("text-input").value.trim()
+    if(!userInput){
+      alert("please input a value")
+    }
+   else {
+   const clearText =  userInput.replace(/[\W_]/g,"").toLowerCase()
+   const reversedText = clearText.split("").reverse().join("")
+ const isPalindrom = clearText === reversedText ? `${userInput} is a palindrome` : `${userInput} is not a palindrome`
+ result.textContent = isPalindrom
+ console.log(isPalindrom)
+}}
+checkBtn.addEventListener("click",checkPalindrom)
+input.addEventListener("keydown",(e)=>{
+  if(event.key === "Enter"){
+    checkPalindrom()
+  }
+})
+  </script>
+</html>

@@ -1,0 +1,44 @@
+body{
+    background-image: linear-gradient(rgba(13, 137, 195, 0.1) , rgba(13, 137, 195, 0.1) ),url("https://static.vecteezy.com/system/resources/previews/003/591/795/original/blank-math-template-with-math-symbol-free-vector.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+fieldset{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    height:60vh;
+    width:50vw;
+    padding:2vh 2vw;
+    text-align: center;
+    color:white;
+    background: #444;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow:30px 30px 50px rgb(7, 34, 54);
+    border: 0;
+}
+label,input{
+font-size: 2vw;
+display: block;
+margin:2vh 0vw;}
+input{
+    width:20vw;
+    text-align: center;
+}
+button{
+    padding:1vh 2vw;
+    color:white;
+    background: rgb(5, 107, 107);
+    font-weight:bold   
+}
+#output{
+    padding:4vh 1vw;
+    font-size:2vw;
+    font-weight: 900;
+    color:antiquewhite
+}
