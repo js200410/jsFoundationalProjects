@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Password Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="justify-center items-center flex h-screen flex-col w-full bg-[#3A6D8C]">
+    <h1 class="text-white font-bold text-[2vw] mb-10">Random Password Generator</h1>
+    <div
+      class="items-center grid justify-center gap-[4%] h-[30vh] pt-3 pb-3 pl-4 pr-4 text-white bg-zinc-900"
+    >
+    <div class="input-copy-container w-[100%] mb-3">
+        <input
+          type="text"
+          value="XFHGRWDB"
+          class="bg-zinc-500 text-center"
+          id="password"
+        />
+        <button
+          class="ml-[5%] bg-blue-700 pt-[1%] pb-[1%] pl-[4%] pr-[4%] rounded-2xl"
+          id="copy-btn"
+        >
+          Copy
+        </button>
+      </div>
+      <div class="range-checkboxes flex gap-10">
+        <input type="range" min="8" max="16" id="range" />
+        <p class="inline">length(<span>8</span>)</p>
+        <label for="number-checkbox">Number</label>
+        <input type="checkbox" id="number-checkbox" />
+        <label for="char-checkbox">Characters</label>
+        <input type="checkbox" id="char-checkbox" class="h-[5%]"/>
+      </div>
+    </div>
+    <script>
+      const password = document.getElementById("password");
+      const copyBtn = document.getElementById("copy-btn");
+      const rangeInput = document.getElementById("range");
+      const numberCheckbox = document.getElementById("number-checkbox");
+      const charCheckbox = document.getElementById("char-checkbox");
+      const generatePassword = (length) => {
+        let result = "";
+        const characters =
+          "ASQEWRDTFYGUHIJOKPLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
+        const numbers = "1234567890";
+        const chars = "@#$%^&*()!";
+        if (numberCheckbox.checked) {
+          result += numbers[Math.floor(Math.random() * numbers.length)];
+        }
+        if (charCheckbox.checked) {
+          result += chars[Math.floor(Math.random() * chars.length)];
+        }
+        const allCharacters =
+          characters + (numberCheckbox.checked
+            ? numbers
+            : "") + (charCheckbox.checked
+            ? characters
+            : "");
+        for (let i = 0; i < length; i++) {
+          let randomIndex = Math.floor(Math.random() * allCharacters.length);
+          result += allCharacters[randomIndex];
+        }
+        password.value = result;
+      };
+      rangeInput.addEventListener("change", () => {
+          generatePassword(rangeInput.value);
+        setInterval(()=>{
+            document.getElementsByTagName("span")[0].innerText = rangeInput.value;
+        },500)
+      });
+      copyBtn.addEventListener("click",()=>{
+        password.select();
+        document.execCommand("copy");
+      })
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </body>
+</html>
