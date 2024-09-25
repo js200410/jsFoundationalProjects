@@ -78,19 +78,30 @@ border-radius:23px ;
 .mt{
   margin-top: 1vh;
 }
-
+@media screen and (max-width:600px){
+   body{
+    margin:0
+  } 
+  .h-1{
+    font-size:3.5vw;
+  }
+  .currency-converter-div{
+  height:60%;
+  width:50%;
+  }
+}
 
   </style>
 </head>
 
 <body class="flex flex-col">
-  <div class="overlay round btn h-4">Currency Converter</div>
+  <div class="overlay round btn h-4 h-1">Currency Converter</div>
   <div class="currency-converter-div  shadow flex flex-col round">
     <div class="input-amount margin">
-      <label for="amount" class="block margin">Amount to convert : </label>
+      <label for="amount" class="block margin h-1">Amount to convert : </label>
       <input type="text" class="center shadow round" id="amount">
     </div>
-    <div class="from-to-div flex space-between margin">
+    <div class="from-to-div flex space-between margin h-1">
       <div>
         <label for="from-selection">
           From
@@ -436,7 +447,7 @@ border-radius:23px ;
       <button id="convert-btn" class="shadow-btn btn round">Convert</button>
       <button id="reset-btn" class="shadow-btn btn round" onclick="reset()">reset</button>
     </div>
-    <div class="result center h-4 margin"></div>
+    <div class="result center h-4 margin h-1"></div>
     <script>
         const amountInput = document.getElementById("amount");
 const fromSelection = document.getElementById("from-selection")
