@@ -1,20 +1,17 @@
-url = `https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=`;
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'fd01483acbmsh602e17cd80a3e07p1e3073jsn8827649468b9',
-		'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
-	}
-};
+
+const url =
+	'https://api.openweathermap.org/data/2.5/weather';
+const apiKey =
+	'f00c38e0279b7bc85480c3fe775d518c';
 
 const btn = document.getElementById('searchBtn')
 const cityInput = document.getElementById('cityInput')
 async function fetchWeather (){
 	const cityName = cityInput.value.trim()
 	if(cityName){
-		const fullUrl = url+cityName
+		const fullUrl = `${url}?q=${cityName}&appid=${apiKey}&units=metric`
 		try{
-			const response =  await fetch(fullUrl,options)
+			const response =  await fetch(fullUrl)
 			if (!response.ok){
 				throw new Error(`http error ! ${response.status}`);
 			}
@@ -28,14 +25,19 @@ async function fetchWeather (){
 		console.log("error occured")
 	}
 }
-
 btn.addEventListener('click',()=>{
 	fetchWeather()
 })
+document.getElementById('cityInput').addEventListener("keydown",(e)=>{
+	if(e.key === "Enter"){
+		fetchWeather()
+	}
+})
 		function displayWeatherData(data){
+			const {wind,main} = data
 			document.getElementById('cityName').innerHTML=`${cityInput.value.trim()}`
-			document.getElementById('temp-data').innerHTML=` temperature:${data.temp}°C`
-			document.getElementById('humidity-data').innerHTML=`humidity:${data.humidity}%`
-			document.getElementById('feels_like-data').innerHTML= `feels like : ${data.feels_like}`
-			document.getElementById('wind-speed-data').innerHTML=`wind-speed: ${data.wind_speed} km/hr`
+			document.getElementById('temp-data').innerHTML=` temperature:${main["temp"]}°C`
+			document.getElementById('humidity-data').innerHTML=`humidity:${main["humidity"]}%`
+			document.getElementById('feels_like-data').innerHTML= `feels like : ${main["feels_like"]}`
+			document.getElementById('wind-speed-data').innerHTML=`wind-speed: ${wind.speed} km/hr`
 		}

@@ -4,10 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link rel="stylesheet" href="index.css">
+    <style>
+      body{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+        height:100vh;
+        overflow: hidden;
+      }
+      @media screen and (max-width: 600px) {
+        .overlay{ 
+         display: none;
+        }
+        .displayWeather,input,.search{
+          width:60vw;
+        }
+        button{
+         display: none;
+        }
+        #cityName{
+        width:50vw;
+        margin-bottom: 3vh;
+        }
+        #cityInput{
+           width:60vw;
+           margin-top:-2vh;
+           margin-left:-13vw;
+           display: inline;
+
+        }
+        ion-icon{
+         margin-left: 20vw;
+        }
+      }
+    </style>
   </head>
   <body class=" bg-no-repeat bg-cover h-[100vh] bg-center justify-center items-center flex bg-[url('https://images.pexels.com/photos/1102915/pexels-photo-1102915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]">
-    <div class="w-[40vw] bg-[url('https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] h-[90vh] p-10 border-10 rounded-[5vh] absolute bg-no-repeat bg-cover bg-center opacity-[0.6]"></div>
+    <div class="overlay w-[40vw] bg-[url('https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] h-[90vh] p-10 border-10 rounded-[5vh] absolute bg-no-repeat bg-cover bg-center opacity-[0.6]"></div>
     <div class=" weather-layout flex justify-center items-center flex-col w-[40vw] p-10 border-10 rounded-[5vh] z-10">
       <div class="displayCity flex justify-center flex-col items-center">
         <img src="https://www.freepngimg.com/thumb/weather/86940-forecasting-weather-sky-atmosphere-rain-png-download-free.png" alt=""
@@ -18,10 +51,9 @@
       </div>
 
       <div class="displayWeather flex flex-col justify-center items-center ">
-      <div class=" search bg-gradient-to-r from-purple-500 to-pink-500 w-[15vw] h-[5vh] border-1 rounded-md flex justify-space-between p-4">
-        <input type="text" id="cityInput" placeholder="enter city name here"  class="text-[2vh] text-center font-semibold inputCity outline-none bg-blue-100 border-1 w-[100%] h-[100%]  rounded-md">
-        <ion-icon name="search-outline" class="w-[5vw] h-[4vh] cursor-pointer" onclick="fetchWeather()"></ion-icon>
-      </div>
+        <input type="text" id="cityInput" placeholder="enter city name here"  class="text-[2vh] text-center inline h-[4vh] font-semibold inputCity outline-none w-[20vw] bg-blue-100 border-1 rounded-md">
+        <ion-icon name="search-outline" class="w-[5vw] h-[4vh] cursor-pointer translate-y-[-4vh] translate-x-[8vw]" onclick="fetchWeather()"></ion-icon>
+     
       <button id="searchBtn" class="bg-cyan-500 text-white w-[10vw] p-5 font-extrabold text-[2vh] m-10 border-1 hover:scale-[1] rounded-md ">
         get weather 
       </button>
@@ -40,14 +72,14 @@
            humidity: 50%
           </h1>
         </div>
-        <div id="feels_like" class="flex flex-col justify-center items-center text-white text-[3vh] gap-[2vh]  capitalize">
+        <div id="feels_like" class="flex flex-col justify-center items-center text-white text-[3vh] gap-[1vh] mb-3 capitalize">
           <img src="https://th.bing.com/th/id/R.d2818659c83e5d962be65b792f2d3986?rik=dHCLnEGLAKwXQw&pid=ImgRaw&r=0" alt=""
           class="h-[10vh]">
           <h1 id="feels_like-data">
             feels like : 60%
           </h1>
         </div>
-        <div id="wind-speed" class="flex flex-col justify-center items-center text-white text-[3vh] gap-[2vh] capitalize">
+        <div id="wind-speed" class="flex flex-col justify-center items-center text-white text-[3vh] gap-[1vh] mb-3 capitalize">
           <img src="https://www.pngall.com/wp-content/uploads/5/Wind-Wave-PNG-Image.png" alt=""
           class="h-[10vh]">
           <h1 id="wind-speed-data">
